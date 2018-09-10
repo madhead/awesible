@@ -1,5 +1,5 @@
 = awesible
 
-(Ubuntu 18.04 + AWS CLI + Ansible) @ Docker
+(Alpine + AWS CLI + Ansible) @ Docker
 
 Because Bitbucket does not allow to use multiple images in one step.

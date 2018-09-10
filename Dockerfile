@@ -1,12 +1,15 @@
-FROM ubuntu:18.04
+FROM alpine:3.8
 
-RUN apt-get update && \
-    apt-get install software-properties-common -y && \
-    apt-add-repository ppa:ansible/ansible && \
-    apt-get update && \
-    apt-get install ansible -y && \
-    apt-get install python-pip -y && \
-    pip install awscli
+RUN apk -v --update add \
+        python \
+        py-pip \
+        ansible \
+        groff \
+        less \
+        && \
+    pip install awscli && \
+    apk -v --purge del py-pip && \
+    rm /var/cache/apk/*
 
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.docker.dockerfile=Dockerfile \
