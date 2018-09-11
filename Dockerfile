@@ -1,6 +1,6 @@
 FROM alpine:3.8
 
-RUN apk -v --update add \
+RUN apk -v --update --no-cache add \
         python \
         py-pip \
         ansible \
@@ -8,8 +8,7 @@ RUN apk -v --update add \
         less \
         && \
     pip install awscli && \
-    apk -v --purge del py-pip && \
-    rm /var/cache/apk/*
+    apk -v --purge del py-pip
 
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.docker.dockerfile=Dockerfile \
