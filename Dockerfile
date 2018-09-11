@@ -4,6 +4,7 @@ RUN apk -v --update --no-cache add \
         python \
         py-pip \
         ansible \
+        openssh \
         groff \
         less \
         && \
